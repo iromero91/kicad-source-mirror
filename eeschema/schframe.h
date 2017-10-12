@@ -1111,7 +1111,16 @@ public:
      * removes \a aItem from the current screen and saves it in the undo list.
      * @param aItem The item to remove from the current screen.
      */
-    void DeleteItem( SCH_ITEM* aItem );
+    void DeleteItem( SCH_ITEM* aItem, bool aAppend = false );
+
+    /**
+     * Removes all items (and unused junctions that connect to them) and saves
+     * each in the undo list
+     *
+     * @param aItemsList The list of items to delete
+     * @param aAppend True if we are updating a previous commit
+     */
+    void DeleteItemsInList( PICKED_ITEMS_LIST& aItemsList, bool aAppend = false );
 
     int GetLabelIncrement() const { return m_repeatLabelDelta; }
 

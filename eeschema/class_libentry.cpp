@@ -1096,7 +1096,7 @@ bool LIB_PART::LoadField( LINE_READER& aLineReader, wxString& aErrorMsg )
         return false;
     }
 
-    if( field->GetId() < MANDATORY_FIELDS )
+    if( (unsigned) field->GetId() < MANDATORY_FIELDS )
     {
         LIB_FIELD* fixedField = GetField( field->GetId() );
 

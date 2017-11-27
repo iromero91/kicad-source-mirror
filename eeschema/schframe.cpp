@@ -1136,10 +1136,12 @@ void SCH_EDIT_FRAME::OnOpenPcbModuleEditor( wxCommandEvent& event )
 void SCH_EDIT_FRAME::OnOpenCvpcb( wxCommandEvent& event )
 {
     wxFileName fn = Prj().AbsolutePath( g_RootSheet->GetScreen()->GetFileName() );
-
     fn.SetExt( NetlistFileExtension );
 
-    if( prepareForNetlist() )
+    if( !prepareForNetlist() )
+        return;
+
+    try
     {
         KIWAY_PLAYER* player = Kiway().Player( FRAME_CVPCB, false );  // test open already.
 
@@ -1153,6 +1155,10 @@ void SCH_EDIT_FRAME::OnOpenCvpcb( wxCommandEvent& event )
         sendNetlist();
 
         player->Raise();
+    }
+    catch( const IO_ERROR& e )
+    {
+        DisplayError( this, _( "Could not open CvPcb" ) );
     }
 }
 

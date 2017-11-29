@@ -208,6 +208,7 @@ set( BMAPS_MID
     drc
     duplicate
     edges_sketch
+    edit_component
     edit_comp_footprint
     edit_comp_ref
     edit_comp_value

@@ -113,8 +113,6 @@ public:
 
     void GetConnectionPoints( std::vector< wxPoint >& aPoints ) const override;
 
-    BITMAP_DEF GetMenuImage() const override;
-
     wxPoint GetPosition() const override { return m_pos; }
 
     void SetPosition( const wxPoint& aPosition ) override { m_pos = aPosition; }
@@ -154,6 +152,8 @@ public:
     wxString GetSelectMenuText() const override;
 
     EDA_ITEM* Clone() const override;
+
+    BITMAP_DEF GetMenuImage() const override;
 };
 
 /**
@@ -180,6 +180,8 @@ public:
     wxString GetSelectMenuText() const override;
 
     EDA_ITEM* Clone() const override;
+
+    BITMAP_DEF GetMenuImage() const override;
 };
 
 #endif    // _SCH_BUS_ENTRY_H_

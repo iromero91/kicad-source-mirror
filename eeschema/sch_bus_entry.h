@@ -101,8 +101,6 @@ public:
 
     void Rotate( wxPoint aPosition ) override;
 
-    bool IsDanglingStateChanged( std::vector<DANGLING_END_ITEM>& aItemList ) override;
-
     bool IsDangling() const override;
 
     bool IsUnconnected() const override { return m_isDanglingEnd && m_isDanglingStart; }
@@ -159,6 +157,8 @@ public:
     EDA_ITEM* Clone() const override;
 
     BITMAP_DEF GetMenuImage() const override;
+
+    bool IsDanglingStateChanged( std::vector<DANGLING_END_ITEM>& aItemList ) override;
 };
 
 /**
@@ -189,6 +189,8 @@ public:
     EDA_ITEM* Clone() const override;
 
     BITMAP_DEF GetMenuImage() const override;
+
+    bool IsDanglingStateChanged( std::vector<DANGLING_END_ITEM>& aItemList ) override;
 };
 
 #endif    // _SCH_BUS_ENTRY_H_
